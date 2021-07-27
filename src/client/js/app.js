@@ -24,8 +24,8 @@ const generateBtn = document.querySelector("#generate");
 function handleSubmit(event) {
   event.preventDefault();
   // store user input into variables
-  zip = document.querySelector("#zip").value;
-  userFeel = document.querySelector("#feelings").value;
+  // zip = document.querySelector("#zip").value;
+  userInput = document.querySelector("#feelings").value;
 
   // create url depending on the location
   url = `api.geonames.org/${mode}${userInput}&username=${apiUser}`;
