@@ -34,7 +34,7 @@ function handleSubmit(event) {
     .then(() => {
       postWeatherData("/add", {
         newDate,
-        userFeel,
+        userInput,
         weather,
       });
     })
