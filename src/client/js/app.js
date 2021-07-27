@@ -23,27 +23,26 @@ const handleSubmit = async (e) => {
   // const generateBtn = document.querySelector("#generate");
 
   // listen for submission of user input
-  () => {
-    // event.preventDefault();
-    // store user input into variables
-    // zip = document.querySelector("#zip").value;
-    userInput = document.querySelector("#feelings").value;
 
-    // create url depending on the location
-    url = `api.geonames.org/${mode}${userInput}&username=${apiUser}`;
+  // event.preventDefault();
+  // store user input into variables
+  // zip = document.querySelector("#zip").value;
+  userInput = document.querySelector("#feelings").value;
 
-    getWeather()
-      .then(() => {
-        postWeatherData("/add", {
-          newDate,
-          userInput,
-          weather,
-        });
-      })
-      .then(() => {
-        updateUI();
+  // create url depending on the location
+  url = `api.geonames.org/${mode}${userInput}&username=${apiUser}`;
+
+  getWeather()
+    .then(() => {
+      postWeatherData("/add", {
+        newDate,
+        userInput,
+        weather,
       });
-  };
+    })
+    .then(() => {
+      updateUI();
+    });
 
   // main functions
 
