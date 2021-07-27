@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Loromi/weather-journal-app.git"
+    "url": "git+https://github.com/Loromi/travel-app.git"
   },
   "author": "'Romario Lorenz'",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Loromi/weather-journal-app/issues"
+    "url": "https://github.com/Loromi/travel-app/issues"
   },
-  "homepage": "https://github.com/Loromi/weather-journal-app#readme",
+  "homepage": "https://github.com/Loromi/travel-app#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
