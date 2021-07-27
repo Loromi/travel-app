@@ -20,7 +20,8 @@ let newDate = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
 const generateBtn = document.querySelector("#generate");
 
 // listen for submission of user input
-generateBtn.addEventListener("click", function () {
+function handleSubmit(event) {
+  event.preventDefault()
   // store user input into variables
   zip = document.querySelector("#zip").value;
   userFeel = document.querySelector("#feelings").value;
@@ -89,3 +90,5 @@ const updateUI = async () => {
     console.log("error in updateUI()", error);
   }
 };
+
+export { handleSubmit }
