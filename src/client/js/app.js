@@ -22,7 +22,7 @@ const generateBtn = document.querySelector("#generate");
 
 // listen for submission of user input
 function handleSubmit(event) {
-  event.preventDefault();
+  // event.preventDefault();
   // store user input into variables
   // zip = document.querySelector("#zip").value;
   userInput = document.querySelector("#feelings").value;
