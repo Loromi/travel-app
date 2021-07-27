@@ -2,7 +2,7 @@
   "name": "weather-journal-app",
   "version": "1.0.0",
   "description": "Weather Journal",
-  "main": "server.js",
+  "main": "./src/server/index.js",
   "scripts": {
     "test": "jest",
     "start": "node src/server/index.js",
