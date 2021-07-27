@@ -1,8 +1,9 @@
-const dotenv = require("dotenv");
-dotenv.config();
+// const dotenv = require("dotenv");
+// dotenv.config();
 
 /* Global Variables */
-const apiUser = process.env.API_USER;
+const apiUser = "loromi94";
+// const apiUser = process.env.API_USER;
 const country = "AT";
 
 let mode = "searchJSON?q=";
@@ -21,7 +22,7 @@ const generateBtn = document.querySelector("#generate");
 
 // listen for submission of user input
 function handleSubmit(event) {
-  event.preventDefault()
+  event.preventDefault();
   // store user input into variables
   zip = document.querySelector("#zip").value;
   userFeel = document.querySelector("#feelings").value;
@@ -40,7 +41,7 @@ function handleSubmit(event) {
     .then(() => {
       updateUI();
     });
-});
+}
 
 // main functions
 
@@ -91,4 +92,4 @@ const updateUI = async () => {
   }
 };
 
-export { handleSubmit }
+export { handleSubmit };
