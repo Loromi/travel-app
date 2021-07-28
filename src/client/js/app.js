@@ -1,5 +1,5 @@
 import { updateUI } from "./updateUI.js";
-import { getWeather } from "./apiRequest.js";
+import { getGeonames } from "./apiRequest.js";
 import { postWeatherData } from "./postData.js";
 
 const handleSubmit = async (e) => {
@@ -36,7 +36,7 @@ const handleSubmit = async (e) => {
   // create url depending on the location
   url = `api.geonames.org/${mode}${userInput}&username=${apiUser}`;
 
-  getWeather()
+  getGeonames()
     .then(() => {
       postWeatherData("/add", {
         newDate,
