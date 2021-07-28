@@ -1,3 +1,7 @@
+import { updateUI } from "./updateUI.js";
+import { getWeather } from "./apiRequest.js";
+import { postWeatherData } from "./postData.js";
+
 const handleSubmit = async (e) => {
   e.preventDefault;
   // const dotenv = require("dotenv");
@@ -5,8 +9,8 @@ const handleSubmit = async (e) => {
 
   /* Global Variables */
   const apiUser = "loromi94";
-  // const apiUser = process.env.API_USER;
-  const country = "AT";
+  // // const apiUser = process.env.API_USER;
+  // const country = "AT";
 
   let mode = "searchJSON?q=";
   let userInput = "";
@@ -43,57 +47,6 @@ const handleSubmit = async (e) => {
     .then(() => {
       updateUI();
     });
-
-  // main functions
-
-  // POST fetched data to server-side endpoint
-  const postWeatherData = async (url = ``, data = {}) => {
-    const response = await fetch(url, {
-      method: "POST",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    try {
-      const fetchedData = await response.json();
-      return fetchedData;
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
-
-  // Get weather from openweathermap api
-  const getWeather = async () => {
-    const req = await fetch(url);
-    try {
-      const data = await req.json();
-      console.log(data);
-      weather = data.main.temp;
-      console.log(weather);
-      return data;
-    } catch (error) {
-      console.log("error in getWeather()", error);
-    }
-  };
-
-  // update with UI with new entry
-  const updateUI = async () => {
-    const request = await fetch("/all");
-    try {
-      const allData = await request.json();
-      document.querySelector("#date").innerHTML = `Date: ${allData.newDate}`;
-      document.querySelector(
-        "#temp"
-      ).innerHTML = `Weather: ${allData.weather}°C`;
-      document.querySelector(
-        "#content"
-      ).innerHTML = `Journal entry: ${allData.userFeel}`;
-    } catch (error) {
-      console.log("error in updateUI()", error);
-    }
-  };
 };
 
 // document.addEventListener("DOMContentLoaded", loadingComplete);
