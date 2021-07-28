@@ -94,8 +94,12 @@ const handleSubmit = async (e) => {
       console.log("error in updateUI()", error);
     }
   };
-  const submitBtn = document.querySelector("#generate");
-  submitBtn.addEventListener("submit", handleSubmit);
 };
+
+// document.addEventListener("DOMContentLoaded", loadingComplete);
+// function loadingComplete() {
+//   const submitBtn = document.querySelector("#generate");
+//   submitBtn.addEventListener("submit", handleSubmit);
+// }
 
 export { handleSubmit };
