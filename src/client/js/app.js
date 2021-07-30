@@ -26,23 +26,39 @@ const handleSubmit = async (e) => {
 
   // event.preventDefault();
   // store user input into variables
-  // zip = document.querySelector("#zip").value;
+
+  /**
+   * calculate the days left until the trip is supposed to start
+   * @var startDate start date of the trip as JS timestamp in ms
+   * @var currentDate current date from the user's system as JS timestamp in ms
+   * @var msPerDay milliseconds per Day
+   * @var daysLeft days until the trip starts
+   */
+  const startDate = document.querySelector("#startDate").valueAsNumber;
+  const currentDate = new Date().getTime();
+  let msPerDay = 24 * 60 * 60 * 1000;
+  let daysLeft = Math.floor((startDate - currentDate) / msPerDay);
+  console.log(startDate, currentDate, daysLeft);
+
   userInput = document.querySelector("#feelings").value;
 
   // create url depending on the location
   url = `api.geonames.org/${mode}${userInput}&username=${apiUser}`;
 
-  getGeonames()
-    .then(() => {
-      postWeatherData("/add", {
-        newDate,
-        userInput,
-        weather,
-      });
-    })
-    .then(() => {
-      updateUI();
-    });
+  // getGeonames()
+  //   .then(() => {
+  //     postWeatherData("/add", {
+  //       newDate,
+  //       userInput,
+  //       weather,
+  //     });
+  //   })
+  //   .then(() => {
+  //     updateUI();
+  //   });
+  getGeonames().then(() => {
+    updateUI(daysLeft);
+  });
 };
 
 // document.addEventListener("DOMContentLoaded", loadingComplete);
