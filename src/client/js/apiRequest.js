@@ -14,10 +14,26 @@ const getGeonames = async () => {
     geoData.longitude = data.geonames[0].lng;
 
     console.log(geoData);
-    return data;
+    return geoData;
   } catch (error) {
-    console.log("error in getWeather()", error);
+    console.log("error in getGeonames()", error);
   }
 };
 
-export { getGeonames };
+// Get name, latitude and longitude from geonames api
+const getWeatherbit = async () => {
+  const apiKey = "5d7a729b05cb4984b1917ce1c20941bb";
+  // let url = `https://api.weatherbit.io/v2.0/forecast/daily?&lat=${geoData.latitude}&lon=${geoData.longitude}&key=${apiKey}`;
+  let url = `https://api.weatherbit.io/v2.0/forecast/daily?&lat=51.508&lon=0.125&key=${apiKey}`;
+  // let geoData = {};
+  const req = await fetch(url);
+  try {
+    const data = await req.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log("error in getWeatherbit()", error);
+  }
+};
+
+export { getGeonames, getWeatherbit };
