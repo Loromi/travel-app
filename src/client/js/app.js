@@ -1,5 +1,5 @@
 import { updateUI } from "./updateUI.js";
-import { getGeonames } from "./apiRequest.js";
+import { getGeonames, getWeatherbit } from "./apiRequest.js";
 import { postWeatherData } from "./postData.js";
 
 const handleSubmit = async (e) => {
@@ -56,9 +56,13 @@ const handleSubmit = async (e) => {
   //   .then(() => {
   //     updateUI();
   //   });
-  getGeonames().then(() => {
-    updateUI(daysLeft);
-  });
+  getGeonames()
+    .then(() => {
+      getWeatherbit();
+    })
+    .then(() => {
+      updateUI(daysLeft);
+    });
 };
 
 // document.addEventListener("DOMContentLoaded", loadingComplete);
