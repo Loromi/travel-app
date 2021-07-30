@@ -19,10 +19,6 @@ const handleSubmit = async (e) => {
   // weather: temperature in degree Celsius
   let weather = 0;
 
-  // Create a new date instance dynamically with JS
-  let d = new Date();
-  let newDate = d.getMonth() + 1 + "." + d.getDate() + "." + d.getFullYear();
-
   // get input when 'generate' Button is clicked
   // const generateBtn = document.querySelector("#generate");
 
