@@ -15,6 +15,9 @@ module.exports = {
     libraryTarget: "var",
     library: "Client",
   },
+  node: {
+    fs: "empty",
+  },
   module: {
     rules: [
       {
