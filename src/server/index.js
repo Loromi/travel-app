@@ -37,19 +37,13 @@ app.get("/all", (req, res) => {
   res.send(projectData);
 });
 
-// server-side POST route
-app.post("/add", (req, res) => {
-  projectData = req.body;
-});
-
 // Set up node-fetch
 const fetch = require("node-fetch");
 
-const getGeonames = async () => {
+const getGeonames = async (destination) => {
   const geoUser = process.env.GEO_USER;
   let mode = "searchJSON?q=";
-  let userInput = "london";
-  let url = `http://api.geonames.org/${mode}${userInput}&username=${geoUser}`;
+  let url = `http://api.geonames.org/${mode}${destination}&username=${geoUser}`;
   let geoData = {};
   const req = await fetch(url);
   try {
@@ -67,10 +61,9 @@ const getGeonames = async () => {
 };
 
 // Get name, latitude and longitude from weatherbit api
-const getWeatherbit = async () => {
+const getWeatherbit = async (coordinates, daysLeft) => {
   const apiKey = process.env.WEATHERBIT_KEY;
-  // let url = `https://api.weatherbit.io/v2.0/forecast/daily?&lat=${geoData.latitude}&lon=${geoData.longitude}&key=${apiKey}`;
-  let url = `https://api.weatherbit.io/v2.0/forecast/daily?&lat=51.508&lon=0.125&key=${apiKey}`;
+  let url = `https://api.weatherbit.io/v2.0/forecast/daily?&lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&days=${daysLeft}`;
   let weatherData = {};
   const req = await fetch(url);
   try {
@@ -85,3 +78,10 @@ const getWeatherbit = async () => {
     console.log("error in getWeatherbit()", error);
   }
 };
+
+// server-side POST route
+app.post("/data", async (req, res) => {
+  const geonames = await getGeonames("London");
+  const weather = await getWeatherbit(geonames, 5);
+  res.send(weather);
+});
