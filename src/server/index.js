@@ -1,3 +1,7 @@
+// load environmental variables to the server
+const dotenv = require("dotenv");
+dotenv.config();
+
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
 
@@ -37,3 +41,27 @@ app.get("/all", (req, res) => {
 app.post("/add", (req, res) => {
   projectData = req.body;
 });
+
+// Set up node-fetch
+const fetch = require("node-fetch");
+
+const getGeonames = async () => {
+  const geoUser = process.env.GEO_USER;
+  let mode = "searchJSON?q=";
+  let userInput = "london";
+  let url = `http://api.geonames.org/${mode}${userInput}&username=${geoUser}`;
+  let geoData = {};
+  const req = await fetch(url);
+  try {
+    const data = await req.json();
+    console.log(data);
+    geoData.name = data.geonames[0].name;
+    geoData.latitude = data.geonames[0].lat;
+    geoData.longitude = data.geonames[0].lng;
+
+    console.log(geoData);
+    return geoData;
+  } catch (error) {
+    console.log("error in getWeather()", error);
+  }
+};
