@@ -19,11 +19,11 @@ const handleSubmit = async (e) => {
   let msPerDay = 24 * 60 * 60 * 1000;
   let daysLeft = Math.floor((startDate - currentDate) / msPerDay);
   console.log(startDate, currentDate, daysLeft);
-  
-  postWeatherData("http://localhost:3000/data", data).then(() => {
-      updateUI();
-    });
 
+  postWeatherData("http://localhost:3000/data", data).then(() => {
+    updateUI();
+  });
+};
 
 // document.addEventListener("DOMContentLoaded", loadingComplete);
 // function loadingComplete() {
