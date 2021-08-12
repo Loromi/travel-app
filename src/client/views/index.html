@@ -14,32 +14,46 @@
 
 <body>
   <div id="app">
-    <div class="holder headline">
-      Weather Journal App
-    </div>
-    <div class="holder zip">
-      <label for="startDate">Start date:</label>
-      <input type="date" id="startDate" name="trip-start"
-       value="" min="" required>
-    </div>
-    <div class="holder feel">
-      <label for="feelings">How are you feeling today?</label>
-      <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-      <button id="generate" type="submit"> Generate </button>
-      <!-- <button id="generate" type="submit" onclick="return Client.handleSubmit() "onsubmit="return Client.handleSubmit()"> Generate </button> -->
-    </div>
-    <div class="holder entry">
-      <div class="title">Most Recent Entry</div>
-      <div id="entryHolder">
-        <div id="date"></div>
-        <div id="temp"></div>
-        <div id="content"></div>
+    <header>
+      <div>
+        Travel Planner
       </div>
-    </div>
-    <div class="countdown" id="countdown1">
-      <span class="days">00</span>
-      <span class="timeRefDays">days</span>
-    </div>
+    </header>
+    <main>
+      <section id="userInput">
+        <div class="holder date">
+          <label for="startDate">Start date:</label>
+          <input type="date" id="startDate" name="trip-start" value="" min="" required>
+        </div>
+        <div class="holder destination">
+          <label for="destination">Where do you like to go?</label>
+          <input class="myInput" id="feelings" placeholder="enter city here"></input>
+          <button id="generate" type="submit">Add Trip</button>
+      </section>
+      <section id="trip">
+        <div id="picture"></div>
+        <h2 id="tripHeader">Saved trip:</h2>
+        <div class="holder city">
+          <h3 id="destination"></h3>
+          <h3 id="tripdate"></h3>
+        </div>
+        <div class="holder weather" id="weather-container">
+          <h3>weather forecast for your trip:</h3>
+          <div id="weatherHolder">
+            <div class="weather" id="high"></div>
+            <div class="weather" id="low"></div>
+            <div class="weather" id="summary"></div>
+          </div>
+        </div>
+        <div class="countdown" id="countdown1">
+          <span class="days">00</span>
+          <span class="timeRefDays">days</span>
+        </div>
+      </section>
+    </main>
+    <footer>
+  
+    </footer>
   </div>
 </body>
 
