@@ -4,6 +4,23 @@ import { postWeatherData } from "./postData.js";
 
 /* Global Variables */
 
+// Async POST request to get weather
+const getWeather = async (url = "", data = {}) => {
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => res.json());
+  } catch (error) {
+    console.log("ERROR: ", error);
+  }
+};
+getWeather("http://localhost:3000/data", data);
+
 const handleSubmit = async (e) => {
   e.preventDefault;
 

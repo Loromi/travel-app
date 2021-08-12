@@ -45,19 +45,23 @@ const getGeonames = async (destination) => {
   let mode = "searchJSON?q=";
   let url = `http://api.geonames.org/${mode}${destination}&username=${geoUser}`;
   let geoData = {};
-  const req = await fetch(url);
-  try {
-    const data = await req.json();
-    console.log(data);
-    geoData.name = data.geonames[0].name;
-    geoData.latitude = data.geonames[0].lat;
-    geoData.longitude = data.geonames[0].lng;
 
-    console.log(geoData);
-    return geoData;
-  } catch (error) {
-    console.log("error in getWeather()", error);
-  }
+  const fetchData = async (url) => {
+    try {
+      const req = await fetch(url);
+      const data = await req.json();
+      console.log(data);
+      geoData.name = data.geonames[0].name;
+      geoData.latitude = data.geonames[0].lat;
+      geoData.longitude = data.geonames[0].lng;
+
+      console.log(geoData);
+      return geoData;
+    } catch (error) {
+      console.log("error in getWeather()", error);
+    }
+  };
+  return fetchData(url);
 };
 
 // Get name, latitude and longitude from weatherbit api
@@ -65,23 +69,27 @@ const getWeatherbit = async (coordinates, daysLeft) => {
   const apiKey = process.env.WEATHERBIT_KEY;
   let url = `https://api.weatherbit.io/v2.0/forecast/daily?&lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&days=${daysLeft}`;
   let weatherData = {};
-  const req = await fetch(url);
-  try {
-    const data = await req.json();
-    weatherData.temp = data.data[0].temp;
-    weatherData.description = data.data[0].weather.description;
-    weatherData.msSunrise = data.data[0].sunrise_ts;
-    weatherData.msSunset = data.data[0].sunset_ts;
-    console.log(weatherData);
-    return weatherData;
-  } catch (error) {
-    console.log("error in getWeatherbit()", error);
-  }
+
+  const fetchData = async (url) => {
+    try {
+      const req = await fetch(url);
+      const data = await req.json();
+      weatherData.temp = data.data[0].temp;
+      weatherData.description = data.data[0].weather.description;
+      weatherData.msSunrise = data.data[0].sunrise_ts;
+      weatherData.msSunset = data.data[0].sunset_ts;
+      console.log(weatherData);
+      return weatherData;
+    } catch (error) {
+      console.log("error in getWeatherbit()", error);
+    }
+  };
+  return fetchData(url);
 };
 
 // server-side POST route
 app.post("/data", async (req, res) => {
-  const geonames = await getGeonames("London");
-  const weather = await getWeatherbit(geonames, 5);
-  res.send(weather);
+  const ret1 = await getGeonames("London");
+  const ret2 = await getWeatherbit(ret1, 5);
+  res.send(ret2);
 });
