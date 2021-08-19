@@ -1,7 +1,7 @@
 // update with UI with new entry
 const updateUI = async (daysLeft) => {
   // let daysLeft = "161";
-  const request = await fetch("/all");
+  const request = await fetch("http://localhost:3000/data");
   try {
     // const allData = await request.json();
     // document.querySelector("#date").innerHTML = `Date: ${allData.newDate}`;
