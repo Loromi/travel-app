@@ -19,7 +19,7 @@ const getWeather = async (url = "", data = {}) => {
     console.log("ERROR: ", error);
   }
 };
-getWeather("http://localhost:3000/data", data);
+// getWeather("http://localhost:3000/data", data);
 
 const handleSubmit = async (e) => {
   e.preventDefault;
@@ -37,7 +37,7 @@ const handleSubmit = async (e) => {
   let daysLeft = Math.floor((startDate - currentDate) / msPerDay);
   console.log(startDate, currentDate, daysLeft);
 
-  postWeatherData("http://localhost:3000/data", data).then(() => {
+  getWeather("http://localhost:3000/data", {}).then(() => {
     updateUI();
   });
 };
