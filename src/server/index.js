@@ -89,7 +89,9 @@ const getWeatherbit = async (coordinates, daysLeft) => {
 
 // server-side POST route
 app.post("/data", async (req, res) => {
-  const ret1 = await getGeonames("London");
-  const ret2 = await getWeatherbit(ret1, 5);
+  const ret1 = await getGeonames(req.body.destination);
+  const ret2 = await getWeatherbit(ret1, req.body.daysLeft);
   res.send(ret2);
 });
+
+module.exports = app;
