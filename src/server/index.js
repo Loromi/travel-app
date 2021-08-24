@@ -33,7 +33,7 @@ const server = app.listen(port, () => {
 });
 
 // server-side GET route
-app.get("/all", (req, res) => {
+app.get("/data", (req, res) => {
   res.send(projectData);
 });
 
