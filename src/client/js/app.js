@@ -37,6 +37,8 @@ const handleSubmit = async (e) => {
   let daysLeft = Math.floor((startDate - currentDate) / msPerDay);
   console.log(startDate, currentDate, daysLeft);
 
+  const destination = document.querySelector("#destination").value;
+  console.log(destination);
   getWeather("http://localhost:3000/data", {}).then(() => {
     updateUI(daysLeft);
   });
