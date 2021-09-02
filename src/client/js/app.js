@@ -44,7 +44,7 @@ const handleSubmit = async (e) => {
     daysLeft: daysLeft,
   };
   getWeather("http://localhost:3000/data", data).then(() => {
-    updateUI(daysLeft);
+    updateUI(daysLeft, destination, startDate);
   });
 };
 
