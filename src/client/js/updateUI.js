@@ -1,17 +1,22 @@
 // update with UI with new entry
-const updateUI = async (daysLeft) => {
+const updateUI = async (daysLeft, destination, startDate) => {
   // let daysLeft = "161";
   const request = await fetch("http://localhost:3000/data");
   try {
-    // const allData = await request.json();
-    // document.querySelector("#date").innerHTML = `Date: ${allData.newDate}`;
-    // document.querySelector("#temp").innerHTML = `Weather: ${allData.weather}°C`;
-    // document.querySelector(
-    //   "#content"
-    // ).innerHTML = `Journal entry: ${allData.userFeel}`;
     document.querySelector("#picture").innerHTML = ``;
-    document.querySelector("#destination").innerHTML = ``;
-    document.querySelector("#tripdate").innerHTML = ``;
+    document.querySelector(
+      "#destination"
+    ).innerHTML = `<span>${destination}</span>`;
+
+    let ts = startDate;
+    let date = new Date(ts);
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1;
+    let yy = date.getFullYear();
+    console.log(date, dd, mm, yy);
+    document.querySelector(
+      "#tripdate"
+    ).innerHTML = `<span>${dd}.${mm}.${yy}</span>`;
     document.querySelector("#sunrise").innerHTML = ``;
     document.querySelector("#sunset").innerHTML = ``;
     document.querySelector("#temp").innerHTML = ``;
