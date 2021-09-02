@@ -39,7 +39,11 @@ const handleSubmit = async (e) => {
 
   const destination = document.querySelector("#destination").value;
   console.log(destination);
-  getWeather("http://localhost:3000/data", {}).then(() => {
+  const data = {
+    destination: destination,
+    daysLeft: daysLeft,
+  };
+  getWeather("http://localhost:3000/data", data).then(() => {
     updateUI(daysLeft);
   });
 };
