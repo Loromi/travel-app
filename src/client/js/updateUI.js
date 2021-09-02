@@ -9,7 +9,13 @@ const updateUI = async (daysLeft) => {
     // document.querySelector(
     //   "#content"
     // ).innerHTML = `Journal entry: ${allData.userFeel}`;
-
+    document.querySelector("#picture").innerHTML = ``;
+    document.querySelector("#destination").innerHTML = ``;
+    document.querySelector("#tripdate").innerHTML = ``;
+    document.querySelector("#sunrise").innerHTML = ``;
+    document.querySelector("#sunset").innerHTML = ``;
+    document.querySelector("#temp").innerHTML = ``;
+    document.querySelector("#summary").innerHTML = ``;
     document.querySelector(
       ".countdown"
     ).innerHTML = `<span class="days">${daysLeft}</span>
