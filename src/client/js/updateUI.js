@@ -1,7 +1,21 @@
 // update with UI with new entry
 const updateUI = async (daysLeft, destination, startDate) => {
   // let daysLeft = "161";
-  const request = await fetch("http://localhost:3000/data");
+  const response = await fetch("http://localhost:3000/data")
+    .then(function (response) {
+      // The response is a Response instance.
+      // You parse the data into a useable format using `.json()`
+      return response.json();
+    })
+    .then(function (data) {
+      // `data` is the parsed version of the JSON returned from the above endpoint.
+      console.log(data); // { "userId": 1, "id": 1, "title": "...", "body": "..." }
+
+      return data;
+    });
+
+  console.log("response:", response);
+
   try {
     document.querySelector("#picture").innerHTML = ``;
     document.querySelector(
@@ -17,10 +31,14 @@ const updateUI = async (daysLeft, destination, startDate) => {
     document.querySelector(
       "#tripdate"
     ).innerHTML = `<span>${dd}.${mm}.${yy}</span>`;
-    document.querySelector("#sunrise").innerHTML = ``;
-    document.querySelector("#sunset").innerHTML = ``;
-    document.querySelector("#temp").innerHTML = ``;
-    document.querySelector("#summary").innerHTML = ``;
+    let sunrise = response.weatherData.msSunrise;
+    let sunset = response.weatherData.msSunset;
+    let temp = response.weatherData.temp;
+    let summary = response.weatherData.description;
+    document.querySelector("#sunrise").innerHTML = `<span>${sunrise}</span>`;
+    document.querySelector("#sunset").innerHTML = `<span>${sunset}</span>`;
+    document.querySelector("#temp").innerHTML = `<span>${temp} °C</span>`;
+    document.querySelector("#summary").innerHTML = `<span>${summary}</span>`;
     document.querySelector(
       ".countdown"
     ).innerHTML = `<span class="days">${daysLeft}</span>
