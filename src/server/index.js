@@ -45,12 +45,12 @@ const getGeonames = async (destination) => {
     try {
       const req = await fetch(url);
       const data = await req.json();
-      console.log(data);
+      // console.log(data);
       geoData.name = data.geonames[0].name;
       geoData.latitude = data.geonames[0].lat;
       geoData.longitude = data.geonames[0].lng;
       projectData.geoData = geoData;
-      console.log(geoData);
+      // console.log(geoData);
       return geoData;
     } catch (error) {
       console.log("error in getWeather()", error);
@@ -74,7 +74,7 @@ const getWeatherbit = async (coordinates, daysLeft) => {
       weatherData.msSunrise = data.data[0].sunrise_ts;
       weatherData.msSunset = data.data[0].sunset_ts;
       projectData.weatherData = weatherData;
-      console.log(weatherData);
+      // console.log(weatherData);
       return weatherData;
     } catch (error) {
       console.log("error in getWeatherbit()", error);
@@ -85,6 +85,7 @@ const getWeatherbit = async (coordinates, daysLeft) => {
 
 // server-side GET route
 app.get("/data", (req, res) => {
+  console.log("projectData:", projectData);
   res.send(projectData);
 });
 
