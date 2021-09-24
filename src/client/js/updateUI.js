@@ -1,5 +1,5 @@
 // update with UI with new entry
-const updateUI = async (daysLeft, destination, startDate) => {
+const updateUI = async (daysLeft, startDate) => {
   // let daysLeft = "161";
   const response = await fetch("http://localhost:3000/data")
     .then(function (response) {
@@ -18,9 +18,11 @@ const updateUI = async (daysLeft, destination, startDate) => {
 
   try {
     document.querySelector("#picture").innerHTML = ``;
+
+    let destination = response.geoData.name;
     document.querySelector(
-      "#destination"
-    ).innerHTML = `<span>${destination}</span>`;
+      "#tripdestination"
+    ).innerHTML = `<span>Your Trip to: ${destination}</span>`;
 
     let ts = startDate;
     let date = new Date(ts);
