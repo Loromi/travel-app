@@ -45,7 +45,6 @@ const getGeonames = async (destination) => {
     try {
       const req = await fetch(url);
       const data = await req.json();
-      // console.log(data);
       geoData.name = data.geonames[0].name;
       geoData.latitude = data.geonames[0].lat;
       geoData.longitude = data.geonames[0].lng;

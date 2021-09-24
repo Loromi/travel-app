@@ -1,3 +1,5 @@
+import { convertToTime } from "./convertUnix";
+
 // update with UI with new entry
 const updateUI = async (daysLeft, startDate) => {
   // let daysLeft = "161";
@@ -33,8 +35,8 @@ const updateUI = async (daysLeft, startDate) => {
     document.querySelector(
       "#tripdate"
     ).innerHTML = `<span>${dd}.${mm}.${yy}</span>`;
-    let sunrise = response.weatherData.msSunrise;
-    let sunset = response.weatherData.msSunset;
+    let sunrise = convertToTime(response.weatherData.msSunrise);
+    let sunset = convertToTime(response.weatherData.msSunset);
     let temp = response.weatherData.temp;
     let summary = response.weatherData.description;
     document.querySelector("#sunrise").innerHTML = `<span>${sunrise}</span>`;
