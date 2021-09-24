@@ -32,11 +32,6 @@ const server = app.listen(port, () => {
   console.log(`running on localhost: ${port}`);
 });
 
-// server-side GET route
-app.get("/data", (req, res) => {
-  res.send(projectData);
-});
-
 // Set up node-fetch
 const fetch = require("node-fetch");
 
@@ -54,7 +49,7 @@ const getGeonames = async (destination) => {
       geoData.name = data.geonames[0].name;
       geoData.latitude = data.geonames[0].lat;
       geoData.longitude = data.geonames[0].lng;
-
+      projectData.geoData = geoData;
       console.log(geoData);
       return geoData;
     } catch (error) {
@@ -78,6 +73,7 @@ const getWeatherbit = async (coordinates, daysLeft) => {
       weatherData.description = data.data[0].weather.description;
       weatherData.msSunrise = data.data[0].sunrise_ts;
       weatherData.msSunset = data.data[0].sunset_ts;
+      projectData.weatherData = weatherData;
       console.log(weatherData);
       return weatherData;
     } catch (error) {
@@ -86,6 +82,11 @@ const getWeatherbit = async (coordinates, daysLeft) => {
   };
   return fetchData(url);
 };
+
+// server-side GET route
+app.get("/data", (req, res) => {
+  res.send(projectData);
+});
 
 // server-side POST route
 app.post("/data", async (req, res) => {
