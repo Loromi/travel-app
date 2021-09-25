@@ -16,15 +16,39 @@ body{
     font-family: 'Oswald', sans-serif;
 }
 
-#trip{ 
+#trip{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+     grid-template-rows: auto;
+    grid-template-areas: 
+    "header header . cntdwn"
+    "city city weather weather";
+    padding: 1.2rem;
+    margin: 2.4rem;
     background-color: #3b4a6b;
     border: 1px solid #444;
+    border-radius: 5%;
     width: 66vw;
     min-height: 45vh;
 }
 
-.holder{
+#tripheader{
+    grid-area: "header";
+}
 
+.countdown{
+    grid-area: "cntdwn";
+}
+
+.holder{
+}
+
+.city{
+    grid-area: "city";
+}
+
+.weather{
+    grid-area: "weather";
 }
 
 .entry{
