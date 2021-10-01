@@ -13,46 +13,46 @@ body{
 }
 
 #app{
-    // display: grid;
-    // grid-auto-rows: minmax(150px, auto);
-    // /* grid-template-columns:  */
-    // height:100vh;
     background: $background-color;
-    // color: #f0d43a;
-    // justify-content: center;
-    // grid-gap: 1em;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
 
 main{
+    width: 100vw;
+    align-items: center;
+    justify-items: stretch;
     display: grid;
-    grid-template-columns: 40vw 60vw;
-    grid-template-areas: "input trip";
+    grid-template-columns: 35vw 55vw;
+    grid-template-areas: 
+    "input trip";
 }
 
 #trip{
     grid-area: trip;
     display: grid;
     grid-template-columns: 30vw 30vw;
-     grid-template-rows: 30vh 10vh 15vh;
+    grid-template-rows: 30vh 10vh 15vh;
     grid-template-areas: 
     "pic pic"
     "header cntdwn"
     "city weather";
     padding: 1.2rem;
     margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+    margin-right: 5vw;
     background-color: $holder-color;
     border: 1px solid $secondary-color;
     border-radius: 5%;
-    width: 60vw;
+    width: 55vw;
     min-height: 45vh;
     box-shadow: 2px 4px 5px $primary-color;
 }
 
 #userInput{
     grid-area: input;
-    width: 40vw;
+    width: 35vw;
+    margin-left: 5vw;
 }
 
 header{
@@ -65,8 +65,8 @@ header{
     padding-top: 3.75vh;
     padding-bottom: 2.75vh;
     padding-left: 2.25vw;
-    align-content: center;
-    justify-content: center;
+    align-items: center;
+    justify-items: center;
 }
 
 #picture{
@@ -123,14 +123,14 @@ label{
 }
 
 input{
-    display:block;
+    display: block;
     height: 60px;
-    width: 320px;
     background-color: $holder-color;
     color: $secondary-color;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
-    border: none;
+    border-radius: 3%;
+    box-shadow: 2px 2px 3px $primary-color;
     
 }
 
@@ -158,6 +158,8 @@ textarea{
     color: $secondary-color;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+    border-radius: 3%;
+    box-shadow: 2px 2px 3px $primary-color;
 }
 /* Reset style for HTML element on active to have no border*/
 input:focus,
