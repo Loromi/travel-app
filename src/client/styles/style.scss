@@ -32,10 +32,10 @@ main{
 }
 
 #trip{
-    grid-area: "trip";
+    grid-area: trip;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-     grid-template-rows: auto;
+    grid-template-columns: 30vw 30vw;
+     grid-template-rows: 30vh 10vh 15vh;
     grid-template-areas: 
     "pic pic"
     "header cntdwn"
@@ -51,7 +51,7 @@ main{
 }
 
 #userInput{
-    grid-area: "input";
+    grid-area: input;
     width: 40vw;
 }
 
@@ -70,23 +70,23 @@ header{
 }
 
 #picture{
-    grid-area: "pic";
+    grid-area: pic;
 }
 
 #tripheader{
-    grid-area: "header";
+    grid-area: header;
 }
 
 .countdown{
-    grid-area: "cntdwn";
+    grid-area: cntdwn;
 }
 
 .city{
-    grid-area: "city";
+    grid-area: city;
 }
 
 .weather{
-    grid-area: "weather";
+    grid-area: weather;
 }
 
 .entry{
