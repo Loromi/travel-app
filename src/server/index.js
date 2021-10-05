@@ -115,4 +115,10 @@ const getPixabay = async (destination) => {
   return fetchData(url);
 };
 
+// server-side POST route for images
+app.post("/img", async (req, res) => {
+  const image = await getImageLink(req.body.destination);
+  res.send(image);
+});
+
 module.exports = app;
