@@ -99,6 +99,7 @@ app.post("/data", async (req, res) => {
 const getPixabay = async (destination) => {
   const pixabayKey = process.env.PIXABAY_KEY;
   const url = `https://pixabay.com/api/?key=${pixabayKey}&q=${destination}&category=places`;
+  console.log(url);
 
   const fetchData = async (url) => {
     try {
@@ -112,13 +113,15 @@ const getPixabay = async (destination) => {
       console.log(error);
     }
   };
+  console.log("getPixabay:", fetchData(url));
   return fetchData(url);
 };
 
 // server-side POST route for images
 app.post("/img", async (req, res) => {
-  const image = await getImageLink(req.body.destination);
+  const image = await getPixabay(req.body.destination);
   res.send(image);
+  console.log("img posted");
 });
 
 module.exports = app;
