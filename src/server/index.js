@@ -95,4 +95,24 @@ app.post("/data", async (req, res) => {
   res.send(ret2);
 });
 
+// return pixabay image link
+const getPixabay = async (destination) => {
+  const pixabayKey = process.env.PIXABAY_KEY;
+  const url = `https://pixabay.com/api/?key=${pixabayKey}&q=${destination}&category=places`;
+
+  const fetchData = async (url) => {
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      const myResData = {
+        url: json.hits[0].webformatURL,
+      };
+      return myResData;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return fetchData(url);
+};
+
 module.exports = app;
