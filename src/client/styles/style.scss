@@ -120,11 +120,13 @@ header{
 label{
     display: flex;
     font-size: 27px;
+    color: $primary-color;
 }
 
 input{
     display: block;
     height: 60px;
+    margin-bottom: 2em;
     background-color: $holder-color;
     color: $secondary-color;
     font-size: 20px;
@@ -161,6 +163,15 @@ textarea{
     border-radius: 3%;
     box-shadow: 2px 2px 3px $primary-color;
 }
+
+@media(max-width:600px) {
+    main{
+        grid-template-areas: 
+        "trip"
+        "input";
+    }
+  }
+
 /* Reset style for HTML element on active to have no border*/
 input:focus,
 select:focus,
