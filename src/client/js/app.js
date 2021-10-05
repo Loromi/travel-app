@@ -21,6 +21,22 @@ const getWeather = async (url = "", data = {}) => {
 };
 // getWeather("http://localhost:3000/data", data);
 
+// Async POST request to fetch image
+const getImg = async (url = "", data = {}) => {
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => res.json());
+  } catch (error) {
+    console.log("ERROR: ", error);
+  }
+};
+
 const handleSubmit = async (e) => {
   e.preventDefault;
 
@@ -43,9 +59,13 @@ const handleSubmit = async (e) => {
     destination: destination,
     daysLeft: daysLeft,
   };
-  getWeather("http://localhost:3000/data", data).then(() => {
-    updateUI(daysLeft, startDate);
-  });
+  getWeather("http://localhost:3000/data", data)
+    .then(() => {
+      updateUI(daysLeft, startDate);
+    })
+    .then(
+      getImg("http://localhost:3000/img", { destination: data.destination })
+    );
 };
 
 // document.addEventListener("DOMContentLoaded", loadingComplete);
