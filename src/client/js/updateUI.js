@@ -11,12 +11,16 @@ const updateUI = async (daysLeft, startDate) => {
     })
     .then(function (data) {
       // `data` is the parsed version of the JSON returned from the above endpoint.
-      console.log(data); // { "userId": 1, "id": 1, "title": "...", "body": "..." }
+      console.log("updateUI: ", data); // { "userId": 1, "id": 1, "title": "...", "body": "..." }
 
       return data;
     });
 
   try {
+    document.querySelector(
+      "#picture"
+    ).innerHTML = `<img src="${response.imgURL.url}" alt="img destination">`;
+
     let destination = response.geoData.name;
     document.querySelector(
       "#tripdestination"
