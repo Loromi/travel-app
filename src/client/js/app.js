@@ -1,5 +1,4 @@
 import { updateUI } from "./updateUI.js";
-import { updateImg } from "./updateImg.js";
 import { getGeonames, getWeatherbit } from "./apiRequest.js";
 import { postWeatherData } from "./postData.js";
 
