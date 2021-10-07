@@ -106,7 +106,7 @@ const getPixabay = async (destination) => {
       const response = await fetch(url);
       const json = await response.json();
       const myResData = {
-        url: json.hits[0].webformatURL,
+        url: json.hits[0].pageURL,
       };
       return myResData;
     } catch (error) {
