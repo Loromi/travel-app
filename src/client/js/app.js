@@ -1,4 +1,5 @@
 import { updateUI } from "./updateUI.js";
+import { updateImg } from "./updateImg.js";
 import { getGeonames, getWeatherbit } from "./apiRequest.js";
 import { postWeatherData } from "./postData.js";
 
@@ -31,7 +32,13 @@ const getImg = async (url = "", data = {}) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .then(function (res) {
+        if (res) {
+          updateImg(res);
+        }
+      });
   } catch (error) {
     console.log("ERROR: ", error);
   }
@@ -60,12 +67,12 @@ const handleSubmit = async (e) => {
     daysLeft: daysLeft,
   };
   getWeather("http://localhost:3000/data", data)
-    .then(() => {
-      updateUI(daysLeft, startDate);
-    })
     .then(
       getImg("http://localhost:3000/img", { destination: data.destination })
-    );
+    )
+    .then(() => {
+      updateUI(daysLeft, startDate);
+    });
 };
 
 // document.addEventListener("DOMContentLoaded", loadingComplete);
