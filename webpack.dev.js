@@ -8,6 +8,13 @@ module.exports = {
   mode: "development",
   devServer: {
     port: 3001,
+    inline: true,
+    hot: true,
+    proxy: {
+      "/": `http://localhost:3000`,
+      "/data": `http://localhost:3000/data`,
+      "/img": `http://localhost:3000/img`,
+    },
   },
   devtool: "source-map",
   stats: "verbose",
