@@ -16,11 +16,7 @@ const updateUI = async (daysLeft, startDate) => {
       return data;
     });
 
-  console.log("response:", response);
-
   try {
-    document.querySelector("#picture").innerHTML = ``;
-
     let destination = response.geoData.name;
     document.querySelector(
       "#tripdestination"
