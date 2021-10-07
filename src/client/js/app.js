@@ -32,13 +32,7 @@ const getImg = async (url = "", data = {}) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then(function (res) {
-        if (res) {
-          updateImg(res);
-        }
-      });
+    }).then((res) => res.json());
   } catch (error) {
     console.log("ERROR: ", error);
   }

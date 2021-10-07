@@ -82,6 +82,28 @@ const getWeatherbit = async (coordinates, daysLeft) => {
   return fetchData(url);
 };
 
+// return pixabay image link
+const getPixabay = async (destination) => {
+  const pixabayKey = process.env.PIXABAY_KEY;
+  const url = `https://pixabay.com/api/?key=${pixabayKey}&q=${destination}&category=places`;
+  console.log(url);
+
+  const fetchData = async (url) => {
+    try {
+      const response = await fetch(url);
+      const json = await response.json();
+      const imgURL = {
+        url: json.hits[0].pageURL,
+      };
+      projectData.imgURL = imgURL;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log("getPixabay:", fetchData(url));
+  return fetchData(url);
+};
+
 // server-side GET route
 app.get("/data", (req, res) => {
   console.log("projectData:", projectData);
@@ -95,27 +117,11 @@ app.post("/data", async (req, res) => {
   res.send(ret2);
 });
 
-// return pixabay image link
-const getPixabay = async (destination) => {
-  const pixabayKey = process.env.PIXABAY_KEY;
-  const url = `https://pixabay.com/api/?key=${pixabayKey}&q=${destination}&category=places`;
-  console.log(url);
-
-  const fetchData = async (url) => {
-    try {
-      const response = await fetch(url);
-      const json = await response.json();
-      const myResData = {
-        url: json.hits[0].pageURL,
-      };
-      return myResData;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  console.log("getPixabay:", fetchData(url));
-  return fetchData(url);
-};
+// server-side GET route
+app.get("/img", (req, res) => {
+  console.log("projectData:", projectData);
+  res.send(projectData);
+});
 
 // server-side POST route for images
 app.post("/img", async (req, res) => {
