@@ -18,12 +18,12 @@ const updateUI = async (daysLeft, startDate) => {
 
   try {
     document.querySelector(
-      "#picture"
+      ".picture"
     ).innerHTML = `<img src="${response.imgURL.url}" alt="img destination">`;
 
     let destination = response.geoData.name;
     document.querySelector(
-      "#tripdestination"
+      ".tripdestination"
     ).innerHTML = `<span>Your Trip to: ${destination}</span>`;
 
     let ts = startDate;
@@ -33,16 +33,16 @@ const updateUI = async (daysLeft, startDate) => {
     let yy = date.getFullYear();
     console.log(date, dd, mm, yy);
     document.querySelector(
-      "#tripdate"
+      ".tripdate"
     ).innerHTML = `<span>${dd}.${mm}.${yy}</span>`;
     let sunrise = convertToTime(response.weatherData.msSunrise);
     let sunset = convertToTime(response.weatherData.msSunset);
     let temp = response.weatherData.temp;
     let summary = response.weatherData.description;
-    document.querySelector("#sunrise").innerHTML = `<span>${sunrise}</span>`;
-    document.querySelector("#sunset").innerHTML = `<span>${sunset}</span>`;
-    document.querySelector("#temp").innerHTML = `<span>${temp} °C</span>`;
-    document.querySelector("#summary").innerHTML = `<span>${summary}</span>`;
+    document.querySelector(".sunrise").innerHTML = `<span>${sunrise}</span>`;
+    document.querySelector(".sunset").innerHTML = `<span>${sunset}</span>`;
+    document.querySelector(".temp").innerHTML = `<span>${temp} °C</span>`;
+    document.querySelector(".summary").innerHTML = `<span>${summary}</span>`;
     document.querySelector(
       ".countdown"
     ).innerHTML = `<span class="days">${daysLeft}</span>
