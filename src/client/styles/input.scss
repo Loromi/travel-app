@@ -1,0 +1,22 @@
+@import "./variables.scss";
+
+#userInput {
+    display: inline-block;
+    width: 100%;
+    background: $secondary-color;
+    background: linear-gradient(0deg, $background-color 0%, $secondary-color 50%, $menu-color 100%);
+}
+
+.holder {
+    display: inline-block;
+    padding: 1.8em 0 1.8em 0;
+}
+
+.date {
+    margin-right: 2em;
+}
+
+label {
+    // color: $primary-color;
+    margin-right: 0.5em;
+}

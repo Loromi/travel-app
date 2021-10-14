@@ -2,6 +2,7 @@ import { handleSubmit } from "./js/app.js";
 import { setDate } from "./js/setDate.js";
 import "./styles/style.scss";
 import "./styles/polaroid.scss";
+import "./styles/input.scss";
 
 document.addEventListener("DOMContentLoaded", loadingComplete);
 
