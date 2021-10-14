@@ -35,12 +35,18 @@ const updateUI = async (daysLeft, startDate) => {
     document.querySelector(
       ".tripdate"
     ).innerHTML = `<span>${dd}.${mm}.${yy}</span>`;
-    let sunrise = convertToTime(response.weatherData.msSunrise);
-    let sunset = convertToTime(response.weatherData.msSunset);
+    let sunriseHours = convertToTime(response.weatherData.msSunrise).hours;
+    let sunriseMinutes = convertToTime(response.weatherData.msSunrise).minutes;
+    let sunsetHours = convertToTime(response.weatherData.msSunset).hours;
+    let sunsetMinutes = convertToTime(response.weatherData.msSunset).minutes;
     let temp = response.weatherData.temp;
     let summary = response.weatherData.description;
-    document.querySelector(".sunrise").innerHTML = `<span>${sunrise}</span>`;
-    document.querySelector(".sunset").innerHTML = `<span>${sunset}</span>`;
+    document.querySelector(
+      ".sunrise"
+    ).innerHTML = `<span>Sunrise: ${sunriseHours}:${sunriseMinutes}</span>`;
+    document.querySelector(
+      ".sunset"
+    ).innerHTML = `<span>Sunset:  ${sunsetHours}:${sunsetMinutes}</span>`;
     document.querySelector(".temp").innerHTML = `<span>${temp} °C</span>`;
     document.querySelector(".summary").innerHTML = `<span>${summary}</span>`;
     document.querySelector(
