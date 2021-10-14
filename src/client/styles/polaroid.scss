@@ -5,12 +5,12 @@
 	padding: 1rem;
 	box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
 	>img {
-		width: 250px;
+		// width: 250px;
 		height: auto;
 	}
 }
 img {
-    width: 300px;
+    width: 400px;
 }
 .caption {
 	font-size: 1.8rem;
@@ -18,7 +18,7 @@ img {
 	line-height: 2em;
 }
 .item {
-	width: 300px;
+	width: 400px;
 	display: inline-block;
 	margin-top: 2rem;
 	filter: grayscale(100%);
