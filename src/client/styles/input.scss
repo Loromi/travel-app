@@ -3,6 +3,9 @@
 #userInput {
     display: inline-block;
     width: 100%;
+    position: sticky;
+    top: $header-height + $header-padding-top + $header-padding-bottom;
+    z-index: 2;
     background: $secondary-color;
     background: linear-gradient(0deg, $background-color 0%, $secondary-color 50%, $menu-color 100%);
 }
