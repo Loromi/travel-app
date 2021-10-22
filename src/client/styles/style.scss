@@ -14,6 +14,8 @@ body{
 
 main{
     width: 100vw;
+    min-height: 180vh;
+    z-index: -1;
     // align-items: center;
     // justify-items: stretch;
     // display: grid;
@@ -55,15 +57,34 @@ main{
 header{
     background-color: $menu-color;
     color: $primary-color;
+    position: sticky;
+    top: 0;
     display: block;
+    z-index: 1;
+    width: 100vw;
+    height: $header-height;
+    font-size: 1.5rem;
+    padding-top: $header-padding-top;
+    padding-bottom: $header-padding-bottom;
+    padding-left: 2.25vh;
+    align-items: center;
+    justify-items: center;
+}
+
+footer{
+    background-color: $menu-color;
+    color: $primary-color;
+    // position: sticky;
+    // bottom: 0;
+    display: flex;
     width: 100vw;
     min-height: 80px;
-    font-size: 1.5rem;
+    font-size: 1.2em;
     padding-top: 3.75vh;
     padding-bottom: 2.75vh;
     padding-left: 2.25vw;
-    align-items: center;
-    justify-items: center;
+    // align-items: flex-start;
+    // justify-items: flex-start;
 }
 
 // #picture{
