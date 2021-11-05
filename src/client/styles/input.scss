@@ -10,6 +10,13 @@
     background: linear-gradient(0deg, $background-color 0%, $secondary-color 50%, $menu-color 100%);
 }
 
+#inputLogo {
+    img {
+        width: 300px;
+        aspect-ratio: 1 / 1;
+    }
+}
+
 .holder {
     display: inline-block;
     padding: 1.8em 0 1.8em 0;
