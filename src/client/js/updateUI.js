@@ -17,6 +17,28 @@ const updateUI = async (daysLeft, startDate) => {
     });
 
   try {
+    const tripHolder = document.createElement("section");
+    tripHolder.classList = "trip item";
+    tripHolder.innerHTML = `<div class="picture"></div>
+    <div class="holder city">
+      <h3 class="tripdestination"></h3>
+      <h3 class="tripdate"></h3>
+      <div class="countdown" id="countdown1">
+        <span class="days">00</span>
+        <span class="timeRefDays">days</span>
+      </div>
+    </div>
+    <div class="holder weather" id="weather-container">
+      <h3>weather forecast for your trip:</h3>
+      <div id="weatherHolder">
+        <div class="weather sunrise"></div>
+        <div class="weather sunset"></div>
+        <div class="weather temp"></div>
+        <div class="weather summary"></div>
+      </div>
+    </div>`;
+    document.querySelector("main").appendChild(tripHolder);
+
     document.querySelector(
       ".picture"
     ).innerHTML = `<img src="${response.imgURL.url}" alt="img destination">`;
