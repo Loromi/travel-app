@@ -1,4 +1,5 @@
 import { updateUI } from "./updateUI.js";
+import { storage } from "./storage.js";
 import { getGeonames, getWeatherbit } from "./apiRequest.js";
 import { postWeatherData } from "./postData.js";
 
@@ -59,6 +60,7 @@ const handleSubmit = async (e) => {
     destination: destination,
     daysLeft: daysLeft,
   };
+  // storage.addEntry(data);
   getWeather("http://localhost:3000/data", data)
     .then(
       getImg("http://localhost:3000/img", { destination: data.destination })

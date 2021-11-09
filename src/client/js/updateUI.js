@@ -23,21 +23,21 @@ const updateUI = async (daysLeft, startDate) => {
     <div class="holder city">
       <h3 class="tripdestination"></h3>
       <h3 class="tripdate"></h3>
-      <div class="countdown" id="countdown1">
+      <div class="countdown">
         <span class="days">00</span>
         <span class="timeRefDays">days</span>
       </div>
     </div>
-    <div class="holder weather" id="weather-container">
+    <div class="holder weather weather-container">
       <h3>weather forecast for your trip:</h3>
-      <div id="weatherHolder">
+      <div class="weatherHolder">
         <div class="weather sunrise"></div>
         <div class="weather sunset"></div>
         <div class="weather temp"></div>
         <div class="weather summary"></div>
       </div>
     </div>`;
-    document.querySelector("main").appendChild(tripHolder);
+    document.querySelector("#sectionHolder").prepend(tripHolder);
 
     document.querySelector(
       ".picture"
