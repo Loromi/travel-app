@@ -1,3 +1,4 @@
+import { storage } from "./storage";
 import { convertToTime } from "./convertUnix";
 
 // update with UI with new entry
@@ -12,7 +13,13 @@ const updateUI = async (daysLeft, startDate) => {
     .then(function (data) {
       // `data` is the parsed version of the JSON returned from the above endpoint.
       console.log("updateUI: ", data); // { "userId": 1, "id": 1, "title": "...", "body": "..." }
-
+      const storedData = storage.getStoredData();
+      if (storedData) {
+        storage.addEntry(data);
+      } else {
+        storage.createStorage();
+        storage.addEntry(data);
+      }
       return data;
     });
 

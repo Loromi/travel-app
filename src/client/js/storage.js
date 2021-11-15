@@ -4,6 +4,10 @@ class Storage {
     localStorage.setItem("entries", JSON.stringify(entries));
   }
 
+  getStoredData() {
+    return JSON.parse(localStorage.getItem("entries"));
+  }
+
   addEntry(data) {
     const entries = JSON.parse(localStorage.getItem("entries"));
     entries.push(data);
