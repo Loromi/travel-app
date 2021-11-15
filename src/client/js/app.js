@@ -60,7 +60,17 @@ const handleSubmit = async (e) => {
     destination: destination,
     daysLeft: daysLeft,
   };
+  // const entries = [];
   // storage.addEntry(data);
+  // if (!storage) {
+  //   const entries = [];
+  //   return entries;
+  // } else {
+  //   const entries = JSON.parse(localStorage.getItem("entries"));
+  //   return entries;
+  // }
+  // entries.push(data);
+  // localStorage.setItem("entries", JSON.stringify(entries));
   getWeather("http://localhost:3000/data", data)
     .then(
       getImg("http://localhost:3000/img", { destination: data.destination })
@@ -69,6 +79,13 @@ const handleSubmit = async (e) => {
       updateUI(daysLeft, startDate);
     });
 };
+
+// const storedData = storage.getStoredData();
+// if (storedData) {
+//   handleSubmit();
+// } else {
+//   storage.createStorage();
+// }
 
 // document.addEventListener("DOMContentLoaded", loadingComplete);
 // function loadingComplete() {
