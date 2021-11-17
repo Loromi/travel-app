@@ -59,7 +59,12 @@ const handleSubmit = async (e) => {
   const data = {
     destination: destination,
     daysLeft: daysLeft,
+    startDate: startDate,
   };
+
+  const tripCount = localStorage.length + 1;
+  storage.addEntry(tripCount, data);
+
   // const entries = [];
   // storage.addEntry(data);
   // if (!storage) {
@@ -71,6 +76,7 @@ const handleSubmit = async (e) => {
   // }
   // entries.push(data);
   // localStorage.setItem("entries", JSON.stringify(entries));
+
   getWeather("http://localhost:3000/data", data)
     .then(
       getImg("http://localhost:3000/img", { destination: data.destination })

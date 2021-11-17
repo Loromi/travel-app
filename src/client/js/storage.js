@@ -8,10 +8,10 @@ class Storage {
     return JSON.parse(localStorage.getItem("entries"));
   }
 
-  addEntry(data) {
-    const entries = JSON.parse(localStorage.getItem("entries"));
-    entries.push(data);
-    localStorage.setItem("entries", JSON.stringify(entries));
+  addEntry(key, data) {
+    // const entries = JSON.parse(localStorage.getItem("entries"));
+    // entries.push(data);
+    localStorage.setItem(key, JSON.stringify(data));
   }
 
   clearStorage() {
