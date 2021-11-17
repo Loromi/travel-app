@@ -14,10 +14,11 @@ const updateUI = async (daysLeft, startDate) => {
       // `data` is the parsed version of the JSON returned from the above endpoint.
       console.log("updateUI: ", data); // { "userId": 1, "id": 1, "title": "...", "body": "..." }
       const storedData = storage.getStoredData();
-      if (storedData) {
+      console.log("storedData: ", storedData);
+      if (storedData == null || storedData == undefined) {
+        storage.createStorage();
         storage.addEntry(data);
       } else {
-        storage.createStorage();
         storage.addEntry(data);
       }
       return data;
