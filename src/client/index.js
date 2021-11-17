@@ -14,12 +14,18 @@ function loadingComplete() {
   setDate();
 
   // storage.createStorage();
-  if (!storage) {
-    storage.createStorage();
-  } else {
-    const entries = JSON.parse(localStorage.getItem("entries"));
-    entries.forEach((element) => updateUI(element));
-  }
+  // if (!storage.entries) {
+  //   storage.createStorage();
+  // }
+  // else {
+  //   const entries = JSON.parse(localStorage.getItem("entries"));
+  //   entries.forEach((element) => updateUI(element));
+  // }
+  // const storedEntry = localStorage.getItem("entries");
+  // if (storedEntry == null) {
+  //   const entries = [];
+  //   localStorage.setItem("entries", JSON.stringify(entries));
+  // }
 
   const inputLogo = document.querySelector("#inputLogo");
   inputLogo.innerHTML = `<img src="${polaroidLogo}" alt="cam-logo.png" width="300" height="300"/>`;
