@@ -1,4 +1,4 @@
-import { storage } from "./storage";
+// import { storage } from "./storage";
 import { convertToTime } from "./convertUnix";
 
 // update with UI with new entry
