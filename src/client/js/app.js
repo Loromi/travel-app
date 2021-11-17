@@ -86,6 +86,22 @@ const handleSubmit = async (e) => {
     });
 };
 
+const loadStorage = async () => {
+  const storageSize = localStorage.length;
+  if (storageSize >= 1) {
+    for (let i = 1; i <= storageSize; i++) {
+      const data = JSON.parse(localStorage.getItem(i));
+      getWeather("http://localhost:3000/data", data)
+        .then(
+          getImg("http://localhost:3000/img", { destination: data.destination })
+        )
+        .then(() => {
+          updateUI(data.daysLeft, data.startDate);
+        });
+    }
+  }
+};
+
 // const storedData = storage.getStoredData();
 // if (storedData) {
 //   handleSubmit();
@@ -99,4 +115,4 @@ const handleSubmit = async (e) => {
 //   submitBtn.addEventListener("submit", handleSubmit);
 // }
 
-export { handleSubmit };
+export { handleSubmit, loadStorage };
