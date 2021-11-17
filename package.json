@@ -27,7 +27,6 @@
     "express": "^4.17.1",
     "jest-fetch-mock": "^3.0.3",
     "node-fetch": "^2.6.1",
-    "node-localstorage": "^2.2.1",
     "regenerator-runtime": "^0.13.7",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2",
