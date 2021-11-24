@@ -102,6 +102,15 @@ const loadStorage = async () => {
   }
 };
 
+const deleteEntry = (index) => {
+  localStorage.removeItem(index);
+};
+
+const clearStorage = async (e) => {
+  e.preventDefault;
+  localStorage.clear();
+};
+
 // const storedData = storage.getStoredData();
 // if (storedData) {
 //   handleSubmit();
@@ -115,4 +124,4 @@ const loadStorage = async () => {
 //   submitBtn.addEventListener("submit", handleSubmit);
 // }
 
-export { handleSubmit, loadStorage };
+export { handleSubmit, loadStorage, deleteEntry, clearStorage };

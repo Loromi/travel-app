@@ -1,4 +1,4 @@
-import { handleSubmit, loadStorage } from "./js/app.js";
+import { clearStorage, handleSubmit, loadStorage } from "./js/app.js";
 import { setDate } from "./js/setDate.js";
 import "./styles/style.scss";
 import "./styles/polaroid.scss";
@@ -43,8 +43,8 @@ function loadingComplete() {
   const submitBtn = document.querySelector("#generate");
   submitBtn.addEventListener("click", handleSubmit);
 
-  // const clearBtn = document.querySelector("#clearBtn");
-  // clearBtn.addEventListener("click", localStorage.clear());
+  const clearBtn = document.querySelector("#clearBtn");
+  clearBtn.addEventListener("click", clearStorage);
 }
 
 export { loadingComplete };
