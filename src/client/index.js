@@ -12,7 +12,7 @@ function loadingComplete() {
   setDate();
 
   const storage = localStorage.getItem(1);
-  console.log(storage);
+  console.log("localStorage: ", storage);
 
   loadStorage();
 
