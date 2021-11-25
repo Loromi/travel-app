@@ -9,8 +9,6 @@ class Storage {
   }
 
   addEntry(key, data) {
-    // const entries = JSON.parse(localStorage.getItem("entries"));
-    // entries.push(data);
     localStorage.setItem(key, JSON.stringify(data));
   }
 

@@ -1,9 +1,7 @@
-// import { storage } from "./storage";
 import { convertToTime } from "./convertUnix";
 
-// update with UI with new entry
+// update UI with new entry
 const updateUI = async (daysLeft, startDate) => {
-  // let daysLeft = "161";
   const response = await fetch("http://localhost:3000/data")
     .then(function (response) {
       // The response is a Response instance.

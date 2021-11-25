@@ -1,9 +1,5 @@
 import { updateUI } from "./updateUI.js";
 import { storage } from "./storage.js";
-import { getGeonames, getWeatherbit } from "./apiRequest.js";
-import { postWeatherData } from "./postData.js";
-
-/* Global Variables */
 
 // Async POST request to get weather
 const getWeather = async (url = "", data = {}) => {
@@ -20,7 +16,6 @@ const getWeather = async (url = "", data = {}) => {
     console.log("ERROR: ", error);
   }
 };
-// getWeather("http://localhost:3000/data", data);
 
 // Async POST request to fetch image
 const getImg = async (url = "", data = {}) => {
@@ -65,18 +60,6 @@ const handleSubmit = async (e) => {
   const tripCount = localStorage.length + 1;
   storage.addEntry(tripCount, data);
 
-  // const entries = [];
-  // storage.addEntry(data);
-  // if (!storage) {
-  //   const entries = [];
-  //   return entries;
-  // } else {
-  //   const entries = JSON.parse(localStorage.getItem("entries"));
-  //   return entries;
-  // }
-  // entries.push(data);
-  // localStorage.setItem("entries", JSON.stringify(entries));
-
   getWeather("http://localhost:3000/data", data)
     .then(
       getImg("http://localhost:3000/img", { destination: data.destination })
@@ -110,18 +93,5 @@ const clearStorage = async (e) => {
   e.preventDefault;
   localStorage.clear();
 };
-
-// const storedData = storage.getStoredData();
-// if (storedData) {
-//   handleSubmit();
-// } else {
-//   storage.createStorage();
-// }
-
-// document.addEventListener("DOMContentLoaded", loadingComplete);
-// function loadingComplete() {
-//   const submitBtn = document.querySelector("#generate");
-//   submitBtn.addEventListener("submit", handleSubmit);
-// }
 
 export { handleSubmit, loadStorage, deleteEntry, clearStorage };
