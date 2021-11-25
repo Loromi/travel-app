@@ -8,7 +8,7 @@ const convertToTime = (unixTimestamp) => {
   } else {
     utc.minutes = minutes;
   }
-  console.log(`utc: ${utc}`);
+  // console.log(`utc: ${JSON.stringify(utc)}`);
   return utc;
 };
 
