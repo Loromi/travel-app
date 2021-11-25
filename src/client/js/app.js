@@ -47,10 +47,10 @@ const handleSubmit = async (e) => {
   const currentDate = new Date().getTime();
   let msPerDay = 24 * 60 * 60 * 1000;
   let daysLeft = Math.floor((startDate - currentDate) / msPerDay);
-  console.log(startDate, currentDate, daysLeft);
+  // console.log(startDate, currentDate, daysLeft);
 
   const destination = document.querySelector("#destination").value;
-  console.log(destination);
+  // console.log(destination);
   const data = {
     destination: destination,
     daysLeft: daysLeft,

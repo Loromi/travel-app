@@ -10,7 +10,7 @@ const updateUI = async (daysLeft, startDate) => {
     })
     .then(function (data) {
       // `data` is the parsed version of the JSON returned from the above endpoint.
-      console.log("updateUI: ", data); // { "userId": 1, "id": 1, "title": "...", "body": "..." }
+      // console.log("updateUI: ", data); // { "userId": 1, "id": 1, "title": "...", "body": "..." }
       return data;
     });
 
@@ -51,7 +51,7 @@ const updateUI = async (daysLeft, startDate) => {
     let dd = date.getDate();
     let mm = date.getMonth() + 1;
     let yy = date.getFullYear();
-    console.log(date, dd, mm, yy);
+    // console.log(date, dd, mm, yy);
     document.querySelector(
       ".tripdate"
     ).innerHTML = `<span>${dd}.${mm}.${yy}</span>`;
