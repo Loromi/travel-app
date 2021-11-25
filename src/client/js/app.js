@@ -56,6 +56,7 @@ const handleSubmit = async (e) => {
     daysLeft: daysLeft,
     startDate: startDate,
   };
+  console.log(`data: ${data}}`);
 
   const tripCount = localStorage.length + 1;
   storage.addEntry(tripCount, data);
@@ -73,13 +74,16 @@ const loadStorage = async () => {
   const storageSize = localStorage.length;
   if (storageSize >= 1) {
     for (let i = 1; i <= storageSize; i++) {
-      const data = JSON.parse(localStorage.getItem(i));
-      getWeather("http://localhost:3000/data", data)
+      const storedData = JSON.parse(localStorage.getItem(i));
+      console.log(`storedData: {${i}: ${storedData}}`);
+      getWeather("http://localhost:3000/data", storedData)
         .then(
-          getImg("http://localhost:3000/img", { destination: data.destination })
+          getImg("http://localhost:3000/img", {
+            destination: storedData.destination,
+          })
         )
         .then(() => {
-          updateUI(data.daysLeft, data.startDate);
+          updateUI(storedData.daysLeft, storedData.startDate);
         });
     }
   }
