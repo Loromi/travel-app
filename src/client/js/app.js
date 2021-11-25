@@ -74,8 +74,8 @@ const loadStorage = async () => {
   const storageSize = localStorage.length;
   if (storageSize >= 1) {
     for (let i = 1; i <= storageSize; i++) {
-      const storedData = JSON.parse(localStorage.getItem(i));
-      console.log(`storedData: {${i}: ${storedData}}`);
+      const storedData = JSON.parse(localStorage.getItem(`${i}`));
+      console.log(`storedData: {${i}: ${JSON.stringify(storedData)}}`);
       getWeather("http://localhost:3000/data", storedData)
         .then(
           getImg("http://localhost:3000/img", {
