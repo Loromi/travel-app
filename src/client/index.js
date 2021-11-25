@@ -4,33 +4,12 @@ import "./styles/style.scss";
 import "./styles/polaroid.scss";
 import "./styles/input.scss";
 import polaroidLogo from "./media/polaroid.png";
-// import { storage } from "./js/storage";
-import { updateUI } from "./js/updateUI.js";
 
 document.addEventListener("DOMContentLoaded", loadingComplete);
 
 function loadingComplete() {
   console.log("DOM loaded!");
   setDate();
-
-  // storage.createStorage();
-  // if (!storage.entries) {
-  //   storage.createStorage();
-  // }
-  // else {
-  //   const entries = JSON.parse(localStorage.getItem("entries"));
-  //   entries.forEach((element) => updateUI(element));
-  // }
-  // const storedEntry = localStorage.getItem("entries");
-  // if (storedEntry == null) {
-  //   const entries = [];
-  //   localStorage.setItem("entries", JSON.stringify(entries));
-  // }
-
-  // if (typeof localStorage === "undefined" || localStorage === null) {
-  //   const LocalStorage = require("node-localstorage").LocalStorage;
-  //   const localStorage = new LocalStorage("./scratch");
-  // }
 
   const storage = localStorage.getItem(1);
   console.log(storage);
@@ -48,4 +27,3 @@ function loadingComplete() {
 }
 
 export { loadingComplete };
-// export { handleSubmit };
