@@ -28,4 +28,4 @@ const setDate = () => {
   inputDate.min = newDate;
 };
 
-export { setDate };
+export { setDate, checkFormat };

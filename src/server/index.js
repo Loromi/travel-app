@@ -67,6 +67,7 @@ const getWeatherbit = async (coordinates, daysLeft) => {
   const fetchData = async (url) => {
     try {
       const req = await fetch(url);
+      console.log("getWeatherbit(", coordinates, daysLeft, "): ", req);
       const data = await req.json();
       weatherData.temp = data.data[0].temp;
       weatherData.description = data.data[0].weather.description;

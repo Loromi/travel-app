@@ -56,7 +56,7 @@ const handleSubmit = async (e) => {
     daysLeft: daysLeft,
     startDate: startDate,
   };
-  console.log(`data: ${data}}`);
+  console.log(`data: ${JSON.stringify(data)}}`);
 
   const tripCount = localStorage.length + 1;
   storage.addEntry(tripCount, data);
@@ -88,6 +88,7 @@ const loadStorage = async () => {
     }
   }
 };
+console.log("loadStorage():   ", loadStorage());
 
 const deleteEntry = (index) => {
   localStorage.removeItem(index);
