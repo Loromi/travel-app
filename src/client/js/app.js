@@ -88,7 +88,6 @@ const loadStorage = async () => {
     }
   }
 };
-console.log("loadStorage():   ", loadStorage());
 
 const deleteEntry = (index) => {
   localStorage.removeItem(index);
