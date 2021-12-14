@@ -113,21 +113,9 @@ app.get("/data", (req, res) => {
 // server-side POST route
 app.post("/data", async (req, res) => {
   const ret1 = await getGeonames(req.body.destination);
-  const ret2 = await getWeatherbit(ret1, req.body.daysLeft);
-  res.send(ret2);
-});
-
-// server-side GET route
-app.get("/img", (req, res) => {
-  // console.log("projectData:", projectData);
+  await getWeatherbit(ret1, req.body.daysLeft);
+  await getPixabay(req.body.destination);
   res.send(projectData);
-});
-
-// server-side POST route for images
-app.post("/img", async (req, res) => {
-  const image = await getPixabay(req.body.destination);
-  res.send(image);
-  // console.log("img posted");
 });
 
 module.exports = app;
