@@ -21,20 +21,22 @@ const handleSubmit = async (e) => {
   e.preventDefault;
 
   /**
+   * check length of local Storage and set variable for new storage iteration
+   * @var tripCount numeric Value of current user input Set
+   */
+  const tripCount = localStorage.length + 1;
+
+  /**
    * calculate the days left until the trip is supposed to start
    * @var startDate start date of the trip as JS timestamp in ms
    * @var currentDate current date from the user's system as JS timestamp in ms
    * @var msPerDay milliseconds per Day
    * @var daysLeft days until the trip starts
    */
-  const startDate = document.querySelector("#startDate").valueAsNumber;
-  const currentDate = new Date().getTime();
-  let msPerDay = 24 * 60 * 60 * 1000;
-  let daysLeft = Math.floor((startDate - currentDate) / msPerDay);
-  // console.log(startDate, currentDate, daysLeft);
+  var { daysLeft, startDate } = setUserDate();
 
   const destination = document.querySelector("#destination").value;
-  // console.log(destination);
+
   const data = {
     destination: destination,
     daysLeft: daysLeft,
@@ -42,8 +44,8 @@ const handleSubmit = async (e) => {
   };
   console.log(`data: ${JSON.stringify(data)}}`);
 
-  const tripCount = localStorage.length + 1;
   storage.addEntry(tripCount, data);
+  console.log(JSON.stringify(storage.getStoredData(`${tripCount}`)));
 
   getWeather("http://localhost:3000/data", data).then(() => {
     updateUI(daysLeft, startDate);
@@ -73,3 +75,10 @@ const clearStorage = async (e) => {
 };
 
 export { handleSubmit, loadStorage, deleteEntry, clearStorage };
+function setUserDate() {
+  const startDate = document.querySelector("#startDate").valueAsNumber;
+  const currentDate = new Date().getTime();
+  let msPerDay = 24 * 60 * 60 * 1000;
+  let daysLeft = Math.floor((startDate - currentDate) / msPerDay);
+  return { daysLeft, startDate };
+}
