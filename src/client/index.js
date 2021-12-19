@@ -11,8 +11,8 @@ function loadingComplete() {
   console.log("DOM loaded!");
   setDate();
 
-  const storage = localStorage.getItem(1);
-  console.log("localStorage: ", storage);
+  // const storage = localStorage.getItem(1);
+  // console.log("localStorage: ", storage);
 
   loadStorage();
 
