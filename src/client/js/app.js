@@ -48,7 +48,7 @@ const handleSubmit = async (e) => {
   console.log(JSON.stringify(storage.getStoredData(`${tripCount}`)));
 
   getWeather("http://localhost:3000/data", data).then(() => {
-    updateUI(daysLeft, startDate);
+    updateUI(daysLeft, startDate, destination);
   });
 };
 
@@ -59,7 +59,11 @@ const loadStorage = async () => {
       const storedData = JSON.parse(localStorage.getItem(`${i}`));
       console.log(`storedData: {${i}: ${JSON.stringify(storedData)}}`);
       getWeather("http://localhost:3000/data", storedData).then(() => {
-        updateUI(storedData.daysLeft, storedData.startDate);
+        updateUI(
+          storedData.daysLeft,
+          storedData.startDate,
+          storedData.destination
+        );
       });
     }
   }
