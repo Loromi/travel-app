@@ -7,6 +7,11 @@ module.exports = {
   entry: "./src/client/index.js",
   mode: "development",
   devServer: {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers":
+        "Origin, X-Requested-With, Content-Type, Accept",
+    },
     port: 3001,
     inline: true,
     hot: true,

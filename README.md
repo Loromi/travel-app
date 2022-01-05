@@ -13,9 +13,11 @@ The travel app asks users for the destination and start date of a desired trip/j
     -   `WEATHERBIT_KEY=${https://api.weatherbit.io API key}`
     -   `PIXABAY_KEY=${https://pixabay.com/api API key}`
 5.  Bash commands:
+    -   `yarn add` installs all dependencies
     -   `yarn prod` compiles the app in production environment
-    -   `yarn dev` compiles the app in development environment
     -   `yarn start`runs the app on **https://localhost:3000**
+    -   `yarn dev` compiles the app in development environment
+        -> note: dev mode needs running prod server in another bash console
     -   `yarn test` and `yarn jest`run the test suite
 
 ## Instructions
