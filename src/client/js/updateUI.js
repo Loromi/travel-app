@@ -1,7 +1,7 @@
 import { convertToTime } from "./convertUnix";
 
 // update UI with new entry
-const updateUI = async (daysLeft, startDate) => {
+const updateUI = async (daysLeft, startDate, destination) => {
   const response = await fetch("http://localhost:3000/data")
     .then(function (response) {
       // The response is a Response instance.
@@ -41,7 +41,7 @@ const updateUI = async (daysLeft, startDate) => {
       ".picture"
     ).innerHTML = `<img src="${response.imgURL.url}" alt="img destination">`;
 
-    let destination = response.geoData.name;
+    // let destination = response.geoData.name;
     document.querySelector(
       ".tripdestination"
     ).innerHTML = `<span>Your Trip to: ${destination}</span>`;
