@@ -1,6 +1,6 @@
 // load environmental variables to the server
-// const dotenv = require("dotenv");
-// dotenv.config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
@@ -36,8 +36,7 @@ const server = app.listen(port, () => {
 const fetch = require("node-fetch");
 
 const getGeonames = async (destination) => {
-  // const geoUser = process.env.GEO_USER;
-  const geoUser = `loromi94`;
+  const geoUser = process.env.GEO_USER;
 
   let mode = "searchJSON?q=";
   let url = `http://api.geonames.org/${mode}${destination}&username=${geoUser}`;
@@ -62,8 +61,7 @@ const getGeonames = async (destination) => {
 
 // Get name, latitude and longitude from weatherbit api
 const getWeatherbit = async (coordinates, daysLeft) => {
-  // const apiKey = process.env.WEATHERBIT_KEY;
-  const apiKey = `5d7a729b05cb4984b1917ce1c20941bb`;
+  const apiKey = process.env.WEATHERBIT_KEY;
 
   let url = `https://api.weatherbit.io/v2.0/forecast/daily?&lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&days=${daysLeft}`;
   let weatherData = {};
@@ -89,8 +87,7 @@ const getWeatherbit = async (coordinates, daysLeft) => {
 
 // return pixabay image link
 const getPixabay = async (destination) => {
-  // const pixabayKey = process.env.PIXABAY_KEY;
-  const pixabayKey = `22897064-1a3ccc246b1292f0a3a213bcb`;
+  const pixabayKey = process.env.PIXABAY_KEY;
 
   const url = `https://pixabay.com/api/?key=${pixabayKey}&q=${destination}&category=places`;
 
