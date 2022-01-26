@@ -29,8 +29,9 @@ If you are interested in testing your code as you go, you can use `tests.js` as 
 ## Examples
 #### User Input
 <img width="666" alt="Screenshot 2022-01-26 at 17 17 57" src="https://user-images.githubusercontent.com/77970573/151203171-63e1d684-4169-4187-9bc3-670b49d51b0f.png">
+
 #### Journal Entry
 <img width="524" alt="Screenshot 2022-01-26 at 17 19 12" src="https://user-images.githubusercontent.com/77970573/151203167-098017c6-2940-4bd8-9cb2-0aa95c99ff39.png">
+
 #### Polaroid Effect
 <img width="597" alt="Screenshot 2022-01-26 at 17 19 21" src="https://user-images.githubusercontent.com/77970573/151203147-65626fdc-c4d2-47f5-8548-2fcb88eb4dd5.png">
-
